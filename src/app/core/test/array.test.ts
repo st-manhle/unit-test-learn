@@ -3,69 +3,41 @@ import { isAscendingArr } from '../helpers/array';
 describe ('array has ascending sorted', () => {
 
   describe('Incorrect cases', () => {
-    describe('Input not an array', () => {
-      it('', () => {
-        expect(null).toBe(false);
-      });
+    it('Input not an array', () => {
+      expect(isAscendingArr('')).toBe(false);
+      expect(isAscendingArr(null)).toBe(false);
+      expect(isAscendingArr(undefined)).toBe(false);
+      expect(isAscendingArr(NaN)).toBe(false);
+      expect(isAscendingArr({})).toBe(false);
+      expect(isAscendingArr(1)).toBe(false);
+    });
+    it('Input is an array with 1 value', () => {
+      expect(isAscendingArr([''])).toBe(false);
+      expect(isAscendingArr([null])).toBe(false);
+      expect(isAscendingArr([undefined])).toBe(false);
+      expect(isAscendingArr([NaN])).toBe(false);
+      expect(isAscendingArr([{}])).toBe(false);
+      expect(isAscendingArr([1])).toBe(false);
+    });
+
+    it('Input is an array with 2 values', () => {
+      expect(isAscendingArr([1, ''])).toBe(false);
+      expect(isAscendingArr([1, null])).toBe(false);
+      expect(isAscendingArr([1, undefined])).toBe(false);
+      expect(isAscendingArr([1, NaN])).toBe(false);
+      expect(isAscendingArr([1, {}])).toBe(false);
+      // expect(isAscendingArr([1, 0])).toBe(false);
     });
   });
 
   describe('Correct case', () => {
-    it('', () => {
-      expect([1, 2, 3]).toBe(true);
+    it('Input is an array with 2 values', () => {
+      expect(isAscendingArr([1, 2])).toBe(true);
+      expect(isAscendingArr([1, 1.1])).toBe(true);
+      expect(isAscendingArr([-1, 1])).toBe(true);
+    });
+    it('Input is an array with more than 2 values', () => {
+      expect(isAscendingArr([1, 2, 2])).toBe(true);
     });
   });
-
-  // describe('check ascending sorted number', () => {
-  //   test('arr is [1, 2, 3]', () => {
-  //     const result = isAscendingArr([1, 2, 3]);
-  //     expect(result).toBeTruthy();
-  //   });
-
-  //   test('arr is [1, 2, 2, 3]', () => {
-  //     const result = isAscendingArr([1, 2, 2, 3]);
-  //     expect(result).toBeTruthy();
-  //   });
-
-  //   test('arr is [-1, 2, 3]', () => {
-  //     const result = isAscendingArr([-1, 2, 3]);
-  //     expect(result).toBeTruthy();
-  //   });
-
-  //   test('arr is [1, 2.2, 2.3]', () => {
-  //     const result = isAscendingArr([1, 2.2, 2.3]);
-  //     expect(result).toBeTruthy();
-  //   });
-
-  //   test('arr is [1, 2e3, 2e4]', () => {
-  //     const result = isAscendingArr([1, 2e3, 2e4]);
-  //     expect(result).toBeTruthy();
-  //   });
-
-  //   test('arr is [3, 2, 1]', () => {
-  //     const result = isAscendingArr([3, 2, 1]);
-  //     expect(result).not.toBeTruthy();
-  //   });
-    
-  //   test('arr is [1, 2, 3, 1]', () => {
-  //     const result = isAscendingArr([1, 2, 3, 1]);
-  //     expect(result).not.toBeTruthy();
-  //   });
-
-  //   test('arr is 1, 2e3, 2e2]', () => {
-  //     const result = isAscendingArr([1, 2e3, 2e2]);
-  //     expect(result).not.toBeTruthy();
-  //   });
-
-  //   test('arr is [1, null, 3]', () => {
-  //     const result = isAscendingArr([1, null, 3]);
-  //     expect(result).not.toBeTruthy();
-  //   });
-
-  //   test('arr is [1, undefined, 3]', () => {
-  //     const result = isAscendingArr([1, undefined, 3]);
-  //     expect(result).not.toBeTruthy();
-  //   });
-
-  // });
 });

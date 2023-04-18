@@ -1,4 +1,16 @@
-export const isAscendingArr = (arr: number[]) => {
-  const temp = arr.slice(1);
-  return temp.every((a, i) => arr[i] <= a);
+export const isAscendingArr = (arr) => {
+  if (!(Array.isArray(arr) && arr.length >= 2)) {
+    return false;
+  }
+  if (!arr.every(item => typeof item === 'number' && !Number.isNaN(item))) {
+    return false;
+  }
+  const a = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] <= arr[i + 1]) {
+      a.push(true);
+    }
+  }
+
+  return !a.includes(false);
 };
