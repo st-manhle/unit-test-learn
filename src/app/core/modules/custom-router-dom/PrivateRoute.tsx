@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 
 function isAuthenticated(): boolean {
   const token = localStorage.getItem('ACCESS_TOKEN');
-  return token ? true : false;
+  return true;
 }
 
 export function privateRoute(Wrapped) {
