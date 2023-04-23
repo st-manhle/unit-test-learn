@@ -32,6 +32,7 @@
     "i18next-http-backend": "^2.1.1",
     "jest-environment-jsdom": "^29.5.0",
     "jwt-decode": "^3.1.2",
+    "msw": "^1.2.1",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^8.0.1",
@@ -57,10 +58,14 @@
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.21.0",
+    "@babel/preset-typescript": "^7.21.4",
     "@babel/runtime-corejs3": "^7.21.0",
     "@redux-devtools/extension": "^3.2.5",
     "@svgr/webpack": "^6.5.1",
+    "@testing-library/dom": "^9.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.14.0",
     "@types/react": "^18.0.28",
@@ -107,6 +112,13 @@
     "ws": ">=7.4.6"
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "^@app(.*)$": "<rootDir>/src/app$1",
+      "^@assets(.*)$": "<rootDir>/src/assets$1",
+      "^@config(.*)$": "<rootDir>/src/config$1",
+      "^@shared(.*)$": "<rootDir>/src/app/shared$1",
+      "^@core(.*)$": "<rootDir>/src/app/core$1"
+    }
   }
 }

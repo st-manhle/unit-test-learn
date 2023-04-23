@@ -22,7 +22,6 @@ exports.setEnvVariables = (mode = '') => {
     prev[`process.env.${next}`] = JSON.stringify(envParsed[next]);
     return prev;
   }, {});
-
   return {
     plugins: [
       new Webpack.EnvironmentPlugin(Object.keys(envParsed).map(key => key)),
