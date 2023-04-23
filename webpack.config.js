@@ -32,7 +32,7 @@ const commonConfigs = () => ({
     main: [
       'core-js/stable',
       'regenerator-runtime/runtime',
-      './app/App.tsx'
+      './app/index.tsx'
     ],
     // vendor: [
     // '@babel/polyfill',
@@ -90,7 +90,7 @@ const productionConfig = () => merge([
 ]);
 
 const developmentConfig = () => merge([
-  parts.loadDevCss({ options: { sourceMap: true }}),
+  parts.loadDevCss({ options: { sourceMap: true } }),
   parts.devServer({
     // Customize host/port here if needed
     host: 'localhost',
